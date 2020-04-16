@@ -19,7 +19,7 @@ class PostsController extends Controller
     {
 
         // $posts = Post::latest()->get();
-        $posts = Post::latest()->paginate(5);
+        $posts = Post::latest()->paginate(10);
         // dd($posts);
         //
         return $posts;
