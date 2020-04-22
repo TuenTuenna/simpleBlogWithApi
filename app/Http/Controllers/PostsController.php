@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +27,8 @@ class PostsController extends Controller
     public function index()
     {
 
-        $posts = Post::latest()->get();
+//        $posts = Post::latest()->get();
+        $posts = Post::latest()->paginate(10);
         // dd($posts);
         //
         return view('Posts.blog_list', [
@@ -67,7 +80,7 @@ class PostsController extends Controller
         // dd($post);
         return view('Posts.show', [
             'post' => $post
-        ]);   
+        ]);
     }
 
     /**
@@ -81,7 +94,7 @@ class PostsController extends Controller
         //
         return view('Posts.edit', [
             'post' => $post
-        ]);   
+        ]);
     }
 
     /**

@@ -1030,6 +1030,7 @@
 
 /* Banner */
 
+
 	#image_background {
 		background-image: url(../images/dark_tint.png), url(../images/bokeh_car_lights_bg.jpg);
 		background-position: center center;
@@ -1040,7 +1041,8 @@
 	}
 
 	#banner {
-		background-image: url(../images/dark_tint.png), url(../images/bokeh_car_lights_bg.jpg);
+        background: linear-gradient( rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.8) ), url(../images/bokeh_car_lights_bg.jpg);
+		/*background-image: url(../images/dark_tint.png), url(../images/bokeh_car_lights_bg.jpg);*/
 		background-position: center center;
 		background-size: cover;
 		color: #fff;

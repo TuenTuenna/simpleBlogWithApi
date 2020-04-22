@@ -52,7 +52,7 @@ class PostsController extends Controller
         $post->save();
 
         // return redirect('/blogs');
-        // 만든것과 응답 결과 보내주기 
+        // 만든것과 응답 결과 보내주기
         return response($post, Response::HTTP_CREATED);
     }
 
@@ -68,7 +68,7 @@ class PostsController extends Controller
         // dd($post);
         // return view('Posts.show', [
         //     'post' => $post
-        // ]);   
+        // ]);
         return $post;
     }
 
@@ -83,7 +83,7 @@ class PostsController extends Controller
         //
         // return view('Posts.edit', [
         //     'post' => $post
-        // ]);   
+        // ]);
     }
 
     /**
@@ -116,4 +116,6 @@ class PostsController extends Controller
         // return redirect('/blogs');
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+
 }

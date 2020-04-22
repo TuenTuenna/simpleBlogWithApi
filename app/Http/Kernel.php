@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
+    // 라우트 미들웨어
     protected $routeMiddleware = [
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
