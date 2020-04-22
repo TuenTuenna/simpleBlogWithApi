@@ -808,6 +808,7 @@
 		text-align: center;
 		text-decoration: none;
 		white-space: nowrap;
+        outline: none;
 	}
 
 		input[type="submit"]:hover,
