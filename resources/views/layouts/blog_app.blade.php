@@ -25,17 +25,21 @@
 
          <!-- Header -->
         <header id="header">
-            <h1><a href="/" style="{{ Request::path() === 'blogs' || Request::path() === 'blogs/:id'  ? 'color: black' : '' }}" >SimpleBlog</a></h1>
+            @if( Request::path() === 'blogs/create' || Request::is('blogs/*/edit'))
+                <h1><a href="/" style="color: white" >SimpleBlog</a></h1>
+            @else
+                <h1><a href="/" style="{{ Request::path() === 'blogs' || Request::is('blogs/*')  ? 'color: black' : '' }}" >SimpleBlog</a></h1>
+            @endif
+
             <nav id="nav">
                 <ul>
                     @auth
                         @if( Request::path() !== 'blogs/create')
                             <input type="button" value="글쓰기" onClick="location.href='/blogs/create'">
-                        @elseif(Request::path() !== 'blogs')
+                        @endif
+                        @if(Request::is('blogs/*') || Request::path() !== 'blogs')
                             <input type="button" value="다른글 보기" onClick="location.href='/blogs'">
                         @endif
-{{--                            <input type="button" value="다른글 보기" style="{{ Request::path() === 'blogs' ? '' : 'visibilty: hidden' }}" onClick="location.href='/blogs'">--}}
-{{--                            <input type="button" value="글쓰기" style="{{ Request::path() === 'blogs/create' ? '' : 'visibilty: hidden' }}" onClick="location.href='/blogs/create'">--}}
                         <li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf

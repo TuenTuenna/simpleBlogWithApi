@@ -42,7 +42,7 @@ Route::get('/', 'PostAuthController@welcome')->name('post_welcome');
 Route::get('/blogs', 'PostsController@index');
 Route::post('/blogs', 'PostsController@store');
 Route::get('/blogs/create', 'PostsController@create');
-Route::get('/blogs/{post}', 'PostsController@show')->name('post_detail');
+Route::get('/blogs/{post}', 'PostsController@show')->name('post.show');
 Route::get('/blogs/{post}/edit', 'PostsController@edit');
 Route::put('/blogs/{post}', 'PostsController@update');
 Route::delete('/blogs/{post}', 'PostsController@destroy');
