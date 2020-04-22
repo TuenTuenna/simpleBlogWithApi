@@ -34,11 +34,13 @@
             <nav id="nav">
                 <ul>
                     @auth
-                        @if( Request::path() !== 'blogs/create')
-                            <input type="button" value="글쓰기" onClick="location.href='/blogs/create'">
-                        @endif
-                        @if(Request::is('blogs/*') || Request::path() !== 'blogs')
-                            <input type="button" value="다른글 보기" onClick="location.href='/blogs'">
+                        @if(Request::path() !== '/')
+                            @if( Request::path() !== 'blogs/create')
+                                <input type="button" value="글쓰기" onClick="location.href='/blogs/create'">
+                            @endif
+                            @if(Request::is('blogs/*') || Request::path() !== 'blogs')
+                                <input type="button" value="다른글 보기" onClick="location.href='/blogs'">
+                            @endif
                         @endif
                         <li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
