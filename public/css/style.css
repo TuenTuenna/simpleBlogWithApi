@@ -8,6 +8,9 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+
+
+
 /* Basic */
 
 	body {
@@ -896,6 +899,7 @@
 		.button.special {
 			background-color: #383b43;
 			color: #ffffff !important;
+            outline: none;
 		}
 
 			input[type="submit"].special:hover,

@@ -17,17 +17,17 @@
 
                     <div class="12u 12u$(small)">
                         <label for="name" class="col-md-4 col-form-label text-md-left" style="color: white">이름</label>
-                        <input name="name" id="name" value="" placeholder="이름을 입력해주세요.." type="text">
+                        <input name="name" required id="name" value="" placeholder="이름을 입력해주세요.." type="text">
                     </div>
 
                     <div class="12u 12u$(small)">
                         <label for="email" class="col-md-4 col-form-label text-md-left" style="color: white">이메일</label>
-                        <input name="email" id="email" value="" placeholder="이메일을 입력해주세요.." type="email">
+                        <input name="email" required id="email" value="" placeholder="이메일을 입력해주세요.." type="email">
                     </div>
 
                     <div class="12u 12u$(small)">
                         <label for="password" class="col-md-4 col-form-label text-md-left" style="color: white">비밀번호</label>
-                        <input name="password" id="password" value="" placeholder="비밀번호를 입력해주세요.." type="password">
+                        <input name="password" required id="password" value="" placeholder="비밀번호를 입력해주세요.." type="password">
                     </div>
 
                     <div class="12u 12u$(small)">

@@ -24,7 +24,7 @@
                     </div>
                     <div class="12u$">
                         <ul class="actions">
-                            <li><input value="로그인" class="special big" type="submit"></li>
+                            <li><input value="로그인" class="special big" type="submit" ></li>
                         </ul>
                     </div>
                 </div>

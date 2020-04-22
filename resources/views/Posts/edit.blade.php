@@ -16,11 +16,11 @@
                     @method('PUT')
                     <div class="row uniform">
                         <div class="12u 12u$(small)">
-                            <input name="title" id="title" value="{{ $post->title }}" placeholder="타이틀" type="text">
+                            <input name="title" id="title" value="{{ $post->title }}" required placeholder="타이틀" type="text">
                         </div>
-                        
+
                         <div class="12u$">
-                            <textarea name="body" id="body" placeholder="내용" rows="6">{{ $post->body }}</textarea>
+                            <textarea name="body" id="body" placeholder="내용" rows="6" required>{{ $post->body }}</textarea>
                         </div>
                         <div class="12u$">
                             <ul class="actions">
@@ -33,5 +33,5 @@
             </div>
         </section>
 
-    
+
 @endsection

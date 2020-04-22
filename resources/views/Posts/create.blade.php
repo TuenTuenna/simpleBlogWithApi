@@ -15,11 +15,11 @@
                     @csrf
                     <div class="row uniform">
                         <div class="12u 12u$(small)">
-                            <input name="title" id="title" value="" placeholder="타이틀" type="text">
+                            <input name="title" id="title" value="" placeholder="타이틀" type="text" required>
                         </div>
-                        
+
                         <div class="12u$">
-                            <textarea name="body" id="body" placeholder="내용" rows="6"></textarea>
+                            <textarea name="body" id="body" placeholder="내용" rows="6" required></textarea>
                         </div>
                         <div class="12u$">
                             <ul class="actions">
@@ -32,5 +32,5 @@
             </div>
         </section>
 
-    
+
 @endsection

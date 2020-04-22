@@ -16,12 +16,12 @@
                 <div class="row uniform">
                     <div class="12u 12u$(small)">
                         <label for="email" class="col-md-4 col-form-label text-md-left" style="color: white">이메일</label>
-                        <input name="email" id="email" value="" placeholder="이메일을 입력해주세요.." type="email">
+                        <input name="email" id="email" required value="" placeholder="이메일을 입력해주세요.." type="email">
                     </div>
 
                     <div class="12u 12u$(small)">
                         <label for="password" class="col-md-4 col-form-label text-md-left" style="color: white">비밀번호</label>
-                        <input name="password" id="password" value="" placeholder="비밀번호를 입력해주세요.." type="password">
+                        <input name="password" id="password" required value="" placeholder="비밀번호를 입력해주세요.." type="password">
                     </div>
 
                     <div class="12u$">
