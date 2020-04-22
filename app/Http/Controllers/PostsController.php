@@ -28,7 +28,7 @@ class PostsController extends Controller
     {
 
 //        $posts = Post::latest()->get();
-        $posts = Post::latest()->paginate(10);
+        $posts = Post::latest()->paginate(3);
         // dd($posts);
         //
         return view('Posts.blog_list', [
