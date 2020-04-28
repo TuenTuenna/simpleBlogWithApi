@@ -47,6 +47,8 @@ Route::get('/blogs/{post}/edit', 'PostsController@edit');
 Route::put('/blogs/{post}', 'PostsController@update');
 Route::delete('/blogs/{post}', 'PostsController@destroy');
 
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+
 
 
 

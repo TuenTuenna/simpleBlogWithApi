@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // 사용자는 포스팅을 많이 달수 있다.
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
+
+    // 사용자는 댓글을 많이 달수 있다.
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
