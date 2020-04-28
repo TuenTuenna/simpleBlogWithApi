@@ -9,7 +9,9 @@
                         <h2>{{ $post->title }}</h2>
                         <p>{{ $post->body }}</p>
                         <div>
-                            <p>{{ $post->user->name }}</p>
+                            @if($post->user != null)
+                                <p>{{ $post->user->name }}</p>
+                            @endif
                             <p> {{ $post->created_at->diffForHumans() }}</p>
                         </div>
 
