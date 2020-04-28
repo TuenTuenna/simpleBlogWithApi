@@ -15,7 +15,6 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-
             // 사용자 필드도 넣자
             $table->unsignedBigInteger('user_id');
             $table->string('title');

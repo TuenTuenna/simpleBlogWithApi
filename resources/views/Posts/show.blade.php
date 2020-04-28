@@ -18,7 +18,6 @@
                                 <form>
                                     <input type="button" class="special middle" value="수정하기" onClick="location.href='/blogs/{{ $post->id }}/edit'">
                                 </form>
-
                             </li>
                             <li>
                                 <form action="/blogs/{{ $post->id }}" method="post">
