@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
-
+// 댓글 컨트롤러
 class CommentController extends Controller
 {
     // 댓글을 추가한다.

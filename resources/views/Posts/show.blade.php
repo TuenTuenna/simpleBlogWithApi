@@ -1,5 +1,9 @@
 @extends('layouts.blog_app')
-
+<style>
+    .display-comment .display-comment {
+        margin-left: 40px
+    }
+</style>
 @section('blog_content')
 
     <!-- Two -->
@@ -39,14 +43,17 @@
                                 <form method="post" action="{{ route('comment.add') }}">
                                     {{--                        <form method="post" action="#">--}}
                                     @csrf
-                                    <div class="form-group">
-                                        <input type="text" name="body" class="form-control" />
-                                        <input type="hidden" name="post_id" value="{{ $post->id }}" />
-                                        <input type="hidden" name="parent_id" value="0" />
+                                    <div class="d-flex bd-highlight">
+                                        <div class="form-group p-2 w-100 bd-highlight">
+                                            <input type="text" name="body" class="form-control" />
+                                            <input type="hidden" name="post_id" value="{{ $post->id }}" />
+                                            <input type="hidden" name="parent_id" value="0" />
+                                        </div>
+                                        <div class="form-group p-2 flex-shrink-1 bd-highlight">
+                                            <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="댓글 남기기" />
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="댓글 남기기" />
-                                    </div>
+
                                 </form>
                             </div>
                             <div class="card-body">
