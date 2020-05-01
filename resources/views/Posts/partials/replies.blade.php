@@ -1,14 +1,24 @@
 @foreach($comments as $comment)
     <hr/>
+
     <div class="display-comment">
-        {{--        {{ dd($comment->id) }}--}}
-        <strong>{{ $comment->user->name }} </strong>
-            <div>
-                {{ $comment->body }}
+{{--        <h1>comment->parent_id: {{ $comment->parent_id > 0 }}</h1>--}}
+        @if($comment->parent_id > 0)
+            <i class="fas fa-reply"></i>
+        @endif
+        <div class="d-flex flex-row bd-highlight">
+            <div class="pl-2 bd-highlight">
+                <strong>{{ $comment->user->name }}</strong>
             </div>
-            <p>
-                {{ $comment->created_at->diffForHumans() }}
-            </p>
+            <div class="pl-2 bd-highlight">
+                <p>
+                    {{ $comment->created_at->diffForHumans() }}
+                </p>
+            </div>
+        </div>
+        <div class="pl-2">
+            {{ $comment->body }}
+        </div>
         <a href="" id="reply"></a>
 {{--        <form method="post" action="{{ route('reply.add') }}">--}}
         <form method="post" action="{{ route('comment.add') }}">
