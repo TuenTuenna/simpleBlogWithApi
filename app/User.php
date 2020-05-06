@@ -46,4 +46,12 @@ class User extends Authenticatable
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+//    // 사용자는 좋아요를 한다.
+//    public function likes()
+//    {
+////        return $this->belongsToMany(Like::class, 'likes', 'user_id', 'post_id');
+//        return $this->belongsToMany('App\Like')->withPivot('user_id', 'post_id');
+//
+//    }
 }

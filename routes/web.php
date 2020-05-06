@@ -51,5 +51,8 @@ Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 
 
 
+Route::post('post/like/{post}', 'PostsController@like')->name('post.handleLike');
+Route::get('post/{id}/islikedbyme', 'PostsController@isLikedByMe');
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
