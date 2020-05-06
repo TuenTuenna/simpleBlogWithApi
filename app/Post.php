@@ -22,4 +22,10 @@ class Post extends Model
         return $this->hasMany(Comment::class)->latest();
     }
 
+    // 포스팅에는 좋아요가 달린다.
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
 }

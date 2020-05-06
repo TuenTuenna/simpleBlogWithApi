@@ -22,6 +22,9 @@ Route::apiResources([
     '/post' => 'Api\PostsController'
 ]);
 
+
+
+
 // Route::apiResources([
 //     'user' => 'API\UserController',
 // ]);

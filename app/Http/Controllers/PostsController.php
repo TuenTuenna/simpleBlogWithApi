@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
 
+    use SoftDeletes;
 
     /**
      * Create a new controller instance.
@@ -127,4 +131,47 @@ class PostsController extends Controller
         $post->delete();
         return redirect('/blogs');
     }
+
+    // 좋아요 여부 확인
+    public function isLikedByMe($id)
+    {
+        $post = Post::findOrFail($id)->first();
+
+
+
+        if (Like::whereUserId(Auth::id())->wherePostId($post->id)->exists()){
+            return 'true';
+        }
+        return 'false';
+    }
+
+    // 좋아요 처리
+    public function like(Post $post)
+    {
+
+//        dd($post);
+//        $existing_like =  $post->likes()->where('user_id', auth()->id())->first();
+
+//        dd($existing_like);
+
+        $existing_like = Like::withTrashed()->wherePostId($post->id)->whereUserId(Auth::id())->first();
+
+        if (is_null($existing_like)) {
+            Like::create([
+                'post_id' => $post->id,
+                'user_id' => Auth::id()
+            ]);
+        } else {
+            if (is_null($existing_like->deleted_at)) {
+                $existing_like->delete();
+            } else {
+                $existing_like->restore();
+            }
+        }
+
+        // 새로고침
+        return redirect('/blogs/' . $post->id);
+
+    }
+
 }

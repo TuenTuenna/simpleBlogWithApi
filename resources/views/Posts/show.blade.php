@@ -17,22 +17,52 @@
                                 <p>{{ $post->user->name }}</p>
                             @endif
                             <p> {{ $post->created_at->diffForHumans() }}</p>
+                                @php
+                                $isLiked = false;
+                                @endphp
+                                @foreach($post->likes as $like)
+{{--                                    <p>{{ $like->user->id }}</p>--}}
+                                    @if(auth()->id() == $like->user->id)
+                                    @php
+                                        $isLiked = true;
+                                    @endphp
+                                    @endif
+                                @endforeach
+
+                                @if($isLiked == true)
+                                    <i class="likeBtn fas fa-thumbs-up" style="color: #3cadd4"></i>
+                                @else
+                                    <i class="likeBtn fas fa-thumbs-up" style="color: #858585"></i>
+                                @endif
+
+                                <br>
+                                <br>
+                                {{-- 좋아요 버튼 --}}
+                                <form method="post" action="{{ route('post.handleLike', $post) }}">
+                                    @csrf
+                                    <input type="submit" class="btn btn-sm btn-outline-danger py-0" style="font-size: 0.8em;" value="좋아요 버튼" />
+                                </form>
+                                <br>
+                            <p>좋아요 {{ count($post->likes) }}</p>
                         </div>
 
-                        <ul class="actions">
-                            <li>
-                                <form>
-                                    <input type="button" class="special middle" value="수정하기" onClick="location.href='/blogs/{{ $post->id }}/edit'">
-                                </form>
-                            </li>
-                            <li>
-                                <form action="/blogs/{{ $post->id }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" class="special middle" value="삭제하기">
-                                </form>
-                            </li>
-                        </ul>
+                        @if(Auth::user()->id == $post->user->id)
+                            <ul class="actions">
+                                <li>
+                                    <form>
+                                        <input type="button" class="special middle" value="수정하기" onClick="location.href='/blogs/{{ $post->id }}/edit'">
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="/blogs/{{ $post->id }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="submit" class="special middle" value="삭제하기">
+                                    </form>
+                                </li>
+                            </ul>
+                        @endif
+
                     </header>
 {{--                <div class="row justify-content-center">--}}
                 <div class="row justify-content-center">
@@ -73,3 +103,33 @@
         </section>
 
 @endsection
+
+
+<script>
+
+    function likeBtnClicked() {
+        console.log("likeBtnClicked")
+
+
+
+        // $('.likeBtn').
+
+    }
+
+    $(function() {
+        $('.toggle-class').change(function() {
+            // var status = $(this).prop('checked') == true ? 1 : 0;
+            // var user_id = $(this).data('id');
+
+            // $.ajax({
+            //     type: "GET",
+            //     dataType: "json",
+            //     url: '/changeStatus',
+            //     data: {'status': status, 'user_id': user_id},
+            //     success: function(data){
+            //         console.log(data.success)
+            //     }
+            // });
+        })
+    })
+</script>
