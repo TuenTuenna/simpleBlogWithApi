@@ -111,6 +111,7 @@ class PostsController extends Controller
      */
     public function update(Post $post)
     {
+
         //
         $post->title = request('title');
         $post->body = request('body');
