@@ -19,6 +19,10 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title');
             $table->text('body');
+
+            // 조회수 필드 추가
+            $table->integer('read_count')->default(0);
+
             $table->timestamps();
 
             // 해당 사용자가 없어지면 해당 사용자의 포스팅도 사라짐

@@ -11,5 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+// 자바스크립트 컴파일
+mix.js('resources/js/app.js', 'public/js');
+   // .sass('resources/sass/app.scss', 'public/css');
+
+// css 컴파일
+mix.postCss('resources/css/main.css', 'public/css', [
+    require('tailwindcss'),
+]);

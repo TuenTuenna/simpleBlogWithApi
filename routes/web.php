@@ -36,8 +36,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+
+
 Route::get('/', 'PostAuthController@welcome')->name('post_welcome');
 //Route::get('/login', 'PostAuthController@login')->name('post_login');
+
+ Route::get('/profile', function(){
+
+     // profile.blade.php 뷰를 반환한다.
+     return view('profile');
+
+ });
 
 Route::get('/blogs', 'PostsController@index');
 Route::post('/blogs', 'PostsController@store');

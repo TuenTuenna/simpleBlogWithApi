@@ -49,6 +49,9 @@
                             @endif
                         @endif
                         <li>
+                            <input type="button" value="프로필" onClick="location.href='/profile'">
+                        </li>
+                        <li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                 @csrf
                                 <input value="로그아웃" type="submit">

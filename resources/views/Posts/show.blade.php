@@ -44,6 +44,7 @@
                                 </form>
                                 <br>
                             <p>좋아요 {{ count($post->likes) }}</p>
+                            <p>조회수 {{ $post->read_count }}</p>
                         </div>
 
                         @if(Auth::user()->id == $post->user->id)

@@ -34,7 +34,9 @@ class PostsController extends Controller
 //        $posts = Post::latest()->get();
         $posts = Post::latest()->paginate(3);
         // dd($posts);
-        //
+
+
+
         return view('Posts.blog_list', [
             'postList' => $posts
         ]);
@@ -83,8 +85,15 @@ class PostsController extends Controller
     {
         // $post = Post::findOrFail($id);
         // dd($post);
+
+        $fetchedPost = Post::findOrFail($post->id);
+
+        $fetchedPost->read_count++;
+
+        $fetchedPost->save();
+
         return view('Posts.show', [
-            'post' => $post
+            'post' => $fetchedPost
         ]);
     }
 
