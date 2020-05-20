@@ -48,6 +48,9 @@ Route::get('/', 'PostAuthController@welcome')->name('post_welcome');
 
  });
 
+ // 이메일 관련 라우트
+Route::post('/sendmail', 'ContactController@store');
+
 Route::get('/blogs', 'PostsController@index');
 Route::post('/blogs', 'PostsController@store');
 Route::get('/blogs/create', 'PostsController@create');
