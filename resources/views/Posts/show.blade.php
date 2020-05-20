@@ -46,24 +46,24 @@
                             <p>좋아요 {{ count($post->likes) }}</p>
                             <p>조회수 {{ $post->read_count }}</p>
                         </div>
-
-                        @if(Auth::user()->id == $post->user->id)
-                            <ul class="actions">
-                                <li>
-                                    <form>
-                                        <input type="button" class="special middle" value="수정하기" onClick="location.href='/blogs/{{ $post->id }}/edit'">
-                                    </form>
-                                </li>
-                                <li>
-                                    <form action="/blogs/{{ $post->id }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <input type="submit" class="special middle" value="삭제하기">
-                                    </form>
-                                </li>
-                            </ul>
+                        @if($post->user->id != null)
+                            @if(Auth::user()->id == $post->user->id)
+                                <ul class="actions">
+                                    <li>
+                                        <form>
+                                            <input type="button" class="special middle" value="수정하기" onClick="location.href='/blogs/{{ $post->id }}/edit'">
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="/blogs/{{ $post->id }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <input type="submit" class="special middle" value="삭제하기">
+                                        </form>
+                                    </li>
+                                </ul>
+                            @endif
                         @endif
-
                     </header>
 {{--                <div class="row justify-content-center">--}}
                 <div class="row justify-content-center">
