@@ -4,11 +4,11 @@
 @section('content')
 
     <div class="flex">
-        <div class="sm:flex-1 md:flex-1"></div>
+        <div class="sm:flex-1 md:flex-1 xl:flex-grow"></div>
         <div class="flex-auto m-8 sm:flex-auto md:flex-auto lg:flex-auto xl:flex-auto">
-            <div class="bg-white rounded-lg shadow-xl p-6">
-                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto" src="{{ asset('images/bob.jpg') }}">
-                <div class="text-center">
+            <div class="md:flex md:mx-0 bg-white rounded-lg shadow-xl p-6">
+                <img class="h-16 w-16 md:h-24 md:w-24 rounded-full mx-auto md:mx-0 md:mr-8" src="{{ asset('images/bob.jpg') }}">
+                <div class="text-center md:text-left">
                     <h2 class="text-lg">Erin Lindford</h2>
                     <div class="text-purple-500">Customer Support</div>
                     <div class="text-gray-600">erinlindford@example.com</div>
