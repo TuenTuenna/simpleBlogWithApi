@@ -46,7 +46,7 @@
                             <p>좋아요 {{ count($post->likes) }}</p>
                             <p>조회수 {{ $post->read_count }}</p>
                         </div>
-                        @if($post->user->id != null)
+                        @if($post->user != null)
                             @if(Auth::user()->id == $post->user->id)
                                 <ul class="actions">
                                     <li>
